@@ -1,2 +1,2 @@
 # beyahio.github.io
-website for beyah.io
+website for beyah.io.
