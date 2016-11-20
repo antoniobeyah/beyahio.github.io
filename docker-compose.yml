@@ -1,0 +1,19 @@
+---
+version: '2'
+services:
+  build:
+    build: .
+    volumes:
+      - .:/build
+    command: "-c 'cd /build && bundle install && bundle exec jekyll serve'"
+    entrypoint: "/bin/sh"
+  site:
+    build: .
+    command: "-c 'cd /build && bundle install && bundle exec jekyll serve'"
+    entrypoint: "/bin/sh"
+    volumes_from:
+      - build
+    ports:
+      - "4000:4000"
+    depends_on:
+      - build
